@@ -1,0 +1,35 @@
+{.section collection}
+
+  <!-- On page index navigation -->
+
+  {.if collections.1}
+<!--   <nav id="indexNav">
+    <ul>
+    {.repeated section collections}
+      <li><a href="#{urlId}"><span class="nav-title">{title}</span></a></li>
+    {.end}
+    </ul>
+  </nav> -->
+  {.end}
+
+  <!-- Create index sections -->
+
+  {.repeated section collections}
+  <div id="{urlId}" class="index-section" data-url-id="{urlId}">
+    <div class="promoted-gallery-wrapper"></div>
+    {.section mainImage}
+    <div class="banner-thumbnail-wrapper{.if description} has-description{.end}" data-content-field="page-settings">
+      <div class="color-overlay"></div>
+      <figure id="thumbnail" class="loading content-fill"><img {@|image-meta} /></figure>
+      {.if description}<div class="desc-wrapper">{description}</div>{.end}
+    </div>
+    {.end}
+    <div class="index-section-wrapper page-content">
+      <div class="content-inner{.section mainContent} has-content{.end}">
+        {mainContent}
+      </div>
+    </div>
+  </div>
+  {.end}
+
+{.end}
